@@ -29,15 +29,24 @@ export function DataProvider({ children }) {
   );
 
   // Persistencia inmediata ante cualquier cambio.
-  useEffect(() => storage.write(storage.KEYS.cabins, cabins), [cabins]);
-  useEffect(() => storage.write(storage.KEYS.treatments, treatments), [treatments]);
-  useEffect(() => storage.write(storage.KEYS.therapists, therapists), [therapists]);
-  useEffect(() => storage.write(storage.KEYS.reservations, reservations), [reservations]);
-  useEffect(() => storage.write(storage.KEYS.blocks, blocks), [blocks]);
-  useEffect(
-    () => storage.write(storage.KEYS.cancellationPolicy, cancellationPolicy),
-    [cancellationPolicy]
-  );
+  useEffect(() => {
+    storage.write(storage.KEYS.cabins, cabins);
+  }, [cabins]);
+  useEffect(() => {
+    storage.write(storage.KEYS.treatments, treatments);
+  }, [treatments]);
+  useEffect(() => {
+    storage.write(storage.KEYS.therapists, therapists);
+  }, [therapists]);
+  useEffect(() => {
+    storage.write(storage.KEYS.reservations, reservations);
+  }, [reservations]);
+  useEffect(() => {
+    storage.write(storage.KEYS.blocks, blocks);
+  }, [blocks]);
+  useEffect(() => {
+    storage.write(storage.KEYS.cancellationPolicy, cancellationPolicy);
+  }, [cancellationPolicy]);
 
   // ---- Tratamientos ----
   function crearTratamiento(datos) {
