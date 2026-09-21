@@ -137,6 +137,7 @@ export const TEXTOS = {
     cambiosGuardados: "Cambios guardados correctamente.",
     sinDatos: "No hay datos disponibles.",
     errorGenerico: "No se ha podido completar la operación. Inténtalo de nuevo.",
+    volverAgenda: "Volver a la Agenda",
   },
 };
 

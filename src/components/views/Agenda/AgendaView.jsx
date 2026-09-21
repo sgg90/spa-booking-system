@@ -7,10 +7,12 @@ import { todayISO, formatDateShort } from "../../../utils/date";
 import { compartirPorWhatsapp } from "../../../utils/whatsapp";
 import { TEXTOS, formatoLineaReservaCompartida } from "../../../data/config";
 import { useToast } from "../../../context/ToastContext";
+import { useNav } from "../../../context/NavContext";
 
 export default function AgendaView() {
+  const { agendaSubvistaInicial } = useNav();
   const [fecha, setFecha] = useState(todayISO());
-  const [subvista, setSubvista] = useState("cabinas");
+  const [subvista, setSubvista] = useState(agendaSubvistaInicial);
   const { reservations, treatments, therapists, cabins } = useData();
   const { showToast } = useToast();
 

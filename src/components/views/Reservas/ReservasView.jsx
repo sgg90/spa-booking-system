@@ -3,18 +3,22 @@ import { TextField, SelectField } from "../../common/Field";
 import Button from "../../common/Button";
 import { useData } from "../../../context/DataContext";
 import { useToast } from "../../../context/ToastContext";
+import { useNav } from "../../../context/NavContext";
 import { TEXTOS } from "../../../data/config";
 import { todayISO } from "../../../utils/date";
 import { calcularHorariosDisponibles } from "../../../utils/scheduling";
 
-const CAMPOS_INICIALES = { nombre: "", apellidos: "", telefono: "", tratamientoId: "", fecha: todayISO() };
+function camposIniciales() {
+  return { nombre: "", apellidos: "", telefono: "", tratamientoId: "", fecha: todayISO() };
+}
 
 export default function ReservasView() {
   const { treatments, therapists, cabins, reservations, blocks, cancellationPolicy, crearReserva } = useData();
   const { showToast } = useToast();
+  const { irAAgendaCabinas } = useNav();
   const t = TEXTOS.nuevaReserva;
 
-  const [campos, setCampos] = useState(CAMPOS_INICIALES);
+  const [campos, setCampos] = useState(camposIniciales);
   const [horaSeleccionada, setHoraSeleccionada] = useState("");
   const [errores, setErrores] = useState({});
 
@@ -64,9 +68,9 @@ export default function ReservasView() {
       return;
     }
     showToast(t.confirmadaOk);
-    setCampos(CAMPOS_INICIALES);
-    setHoraSeleccionada("");
-    setErrores({});
+    // Tras confirmar, se vuelve a la Agenda en su vista de Cabinas para ver
+    // la reserva recién creada reflejada de inmediato.
+    irAAgendaCabinas();
   }
 
   return (
