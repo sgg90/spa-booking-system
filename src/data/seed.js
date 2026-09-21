@@ -3,7 +3,7 @@
 // y a partir de ahí son completamente gestionables desde Administración.
 
 export const CABINAS_SEED = [
-  { id: "cabina-1", nombre: "Cabina A" },
+  { id: "cabina-1", nombre: "Cabina 1" },
   { id: "cabina-2", nombre: "Cabina 2" },
   { id: "cabina-3", nombre: "Cabina 3" },
   { id: "cabina-4", nombre: "Cabina 4" },
