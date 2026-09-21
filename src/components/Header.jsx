@@ -10,16 +10,18 @@ const SECCIONES = [
 export default function Header({ vista, onCambiarVista }) {
   return (
     <header className="sticky top-0 z-30 border-b border-sand-200 bg-ivory/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <span className="font-display text-lg text-sage-800 sm:text-xl">{CENTRO.nombre}</span>
-        <nav className="flex items-center gap-1 sm:gap-2" aria-label="Navegación principal">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:px-6">
+        <span className="min-w-0 flex-1 truncate font-display text-base text-sage-800 sm:flex-none sm:text-xl">
+          {CENTRO.nombre}
+        </span>
+        <nav className="flex shrink-0 items-center gap-1 sm:gap-2" aria-label="Navegación principal">
           {SECCIONES.map((s) => {
             const activa = vista === s.id;
             return (
               <button
                 key={s.id}
                 onClick={() => onCambiarVista(s.id)}
-                className={`focus-ring rounded-lg px-2.5 py-2 text-xs font-medium transition-colors sm:px-3.5 sm:text-sm ${
+                className={`focus-ring rounded-lg px-2 py-2 text-xs font-medium transition-colors sm:px-3.5 sm:text-sm ${
                   activa
                     ? "bg-sage-600 text-ivory"
                     : "text-ink-500 hover:bg-sage-50 hover:text-ink-700"

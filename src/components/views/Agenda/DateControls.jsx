@@ -30,7 +30,7 @@ export default function DateControls({ fecha, onCambiarFecha, subvista, onCambia
         </Button>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="font-display text-lg capitalize text-ink-700">{formatDateLong(fecha)}</p>
+        <p className="text-base font-semibold capitalize text-ink-700 sm:text-lg">{formatDateLong(fecha)}</p>
         <div className="flex gap-1 rounded-lg bg-sand-100 p-1">
           {[
             { id: "cabinas", label: t.vistaCabinas },
