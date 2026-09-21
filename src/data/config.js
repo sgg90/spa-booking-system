@@ -14,9 +14,9 @@ export const HORARIO = {
 };
 
 export const NAV = {
-  agenda: "Agenda",
-  reservas: "Reservas",
-  administracion: "Administración",
+  agenda: "AgendaA",
+  reservas: "ReservasA",
+  administracion: "AdministraciónA",
 };
 
 export const TEXTOS = {
